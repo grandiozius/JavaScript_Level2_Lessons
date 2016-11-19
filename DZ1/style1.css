@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  cursor: default;
+}
+
+.black { 
+  background-color: gray;
+} 
+
+.black:hover {
+  background-color: lightgrey;
+}
+
+.white { 
+  background-color: white;
+}
+
+.white:hover {
+  background-color: lightgrey;
+}
+
+#selected {
+  background-color: darkblue;
+}
+
+#selected:hover {
+  background-color: blue;
+}
+
+.txt {
+  display: table-cell;
+  font-size: 50px;
+  text-align: center;
+  vertical-align: middle;
+  width: 50px; 
+  height: 70px;
+}
+
+.log {
+  font-size: 50px;
+  text-align: left;
+  vertical-align: top;
+  width: 100px; 
+  height: 70px;
+  padding: 10px;
+  float: right;
+}
+
+.whitedeleted:hover {
+  background-color: lightgrey;
+}
+
+.blackdeleted:hover {
+  background-color: lightgrey;
+}
+
+.whitefigures {
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+.whitepawns {
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
