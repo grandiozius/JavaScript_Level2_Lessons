@@ -1,0 +1,20 @@
+{
+  "white":
+          {
+            "pawn":"\u2659",
+            "tower":"\u2656",
+            "knight":"\u2658",
+            "bishop":"\u2657",
+            "queen":"\u2655",
+            "king":"\u2654"
+          },
+  "black":
+          {
+            "pawn":"\u265F",
+            "tower":"\u265C",
+            "knight":"\u265E",
+            "bishop":"\u265D",
+            "queen":"\u265B",
+            "king":"\u265A"
+          }
+}
