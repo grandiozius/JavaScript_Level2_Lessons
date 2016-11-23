@@ -37,12 +37,12 @@
   height: 70px;
 }
 
-.log {
+#log {
   font-size: 50px;
   text-align: left;
   vertical-align: top;
   width: 100px; 
-  height: 70px;
+  height: 500px;
   padding: 10px;
   float: right;
 }
