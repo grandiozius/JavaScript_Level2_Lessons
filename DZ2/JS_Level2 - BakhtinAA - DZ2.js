@@ -2,28 +2,36 @@
 
 // Создайте код, который загрузит файл phones.json из текущей директории
 // и выведет все названия телефонов из него в виде списка.
-/*
-var xhr = new XMLHttpRequest();
-xhr.open('GET', 'phones.json');
-xhr.send();
+
+var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
+var xhr = new XHR();
+xhr.open('GET', 'phones.json', true);
+xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
 xhr.onreadystatechange = function() {
   if (xhr.readyState != 4) return;
   if (xhr.status != 200) alert(xhr.status + ': ' + xhr.statusText);
-  else alert(xhr.responseText);
+  else {
+    try {
+      var phones = JSON.parse(xhr.responseText, function(key, value) {
+        if (key == 'name') return value;
+        else return undefined;
+      });
+    }
+    catch (e) {
+        alert( "Некорректный ответ " + e.message );
+    }
+  }
 };
-var obj = JSON.parse(xhr, function(key, value) {
-  if (key == 'name') return value;
-  else return undefined;
-});
+xhr.send();
 
 var list = document.createElement('ul');
-for (var i = 0; i < obj.length; i++) {
+for (var i = 0; i < phones.length; i++) {
     var li = document.createElement('li');
-    li.innerText = obj[i];
+    li.innerText = phones[i];
     list.appendChild(li);
 }
 document.body.appendChild(list);
-*/
+
 
 // Добавить вывод фигур в шахматную доску из предыдущего урока.
 // Написать инициализацию расположения фигур с помощью ajax-запроса к json-файлу.
@@ -34,7 +42,7 @@ document.body.appendChild(list);
 
 function Board(height, width, dom_node) {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'figures.json');
+  xhr.open('GET', 'figures.json', true);
   xhr.send();
   xhr.onreadystatechange = function() {
     if (xhr.readyState != 4) return;
@@ -49,30 +57,30 @@ function Board(height, width, dom_node) {
     if (key == 'black') return value;
     else return undefined;
   });
-  var multipl = Math.trunc((width - 1)/ 6);
+  var multipl = Math.floor((width - 1)/ 6);
   var ost = width - 1 - (6 * multipl);
   var whitepics = [];
   var blackpics = [];
   for (var k = 0; k < multipl; k++) {
-    whitepics[k] = white.tower;
-    whitepics[width - k] = white.tower;
-    whitepics[k + multipl] = white.knight;
-    whitepics[width - multipl - k] = white.knight;
-    whitepics[k + 2 * multipl] = white.bishop;
-    whitepics[width - 2 * multipl - k] = white.bishop;
-    blackpics[k] = black.tower;
-    blackpics[width - k] = black.tower;
-    blackpics[k + multipl] = black.knight;
-    blackpics[width - multipl - k] = black.knight;
-    blackpics[k + 2 * multipl] = black.bishop;
-    blackpics[width - 2 * multipl - k] = black.bishop;
+    whitepics[k] = white.tower || '\u2656';
+    whitepics[width - 1 - k] = white.tower || '\u2656';
+    whitepics[k + multipl] = white.knight || '\u2658';
+    whitepics[width - 1 - multipl - k] = white.knight || '\u2658';
+    whitepics[k + 2 * multipl] = white.bishop || '\u2657';
+    whitepics[width - 1 - 2 * multipl - k] = white.bishop || '\u2657';
+    blackpics[k] = black.tower || '\u265C';
+    blackpics[width - 1 - k] = black.tower || '\u265C';
+    blackpics[k + multipl] = black.knight || '\u265E';
+    blackpics[width - 1 - multipl - k] = black.knight || '\u265E';
+    blackpics[k + 2 * multipl] = black.bishop || '\u265D';
+    blackpics[width - 1 - 2 * multipl - k] = black.bishop || '\u265D';
   }
   for (var k = 0; k < ost; k++) {
-    whitepics[3 * multipl + k] = white.queen;
-    blackpics[3 * multipl + k] = black.queen;
+    whitepics[3 * multipl + k] = white.queen || '\u2655';
+    blackpics[3 * multipl + k] = black.queen || '\u265B';
   }
-  whitepics[3 * multipl + ost] = white.king;
-  blackpics[3 * multipl + ost] = black.king;
+  whitepics[3 * multipl + ost] = white.king || '\u2654';
+  blackpics[3 * multipl + ost] = black.king || '\u265A';
   var masterdiv = document.createElement('div');
   dom_node.appendChild(masterdiv);
   var row = document.createElement('div');
