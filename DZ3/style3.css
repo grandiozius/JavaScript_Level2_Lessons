@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  width: 600px;
+  margin: 20px auto;
+}
+
+input {
+  display: block;
+  font-family: Arial;
+  font-size: 20px;
+  width: 600px;
+  margin: 5px auto;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+}
+
+button {
+  display: block;
+  font-family: Arial;
+  font-size: 20px;
+  width: 600px;
+  margin: 5px auto;
+}
