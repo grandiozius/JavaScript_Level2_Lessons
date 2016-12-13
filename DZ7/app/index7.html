@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, JavaScript. Level 2</title>
+    <!-- build:css css/styles.min.css-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- endbuild-->
+    <!-- build:js js/main.min.js-->
+    <script async src="js/main.js"></script>
+    <!-- endbuild-->
+  </head>
+  <body>
+    <div id="clock"></div>
+    <div id="voter"><span class="down">-</span><span class="vote">0</span><span class="up">+</span></div>
+    <canvas id="canvas" onload="Canvas()" width="300" height="300"></canvas>
+    <script>
+      var clock = new Clock();
+      clock.start();
+      var voter = new Voter();
+      var canvas = new Canvas();
+      canvas.draw();
+    </script>
+  </body>
+</html>

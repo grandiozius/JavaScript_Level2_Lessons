@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title Hello, JavaScript. Level 2
+    // build:css css/styles.min.css
+    link(rel='stylesheet' type='text/css' href='css/style.css')
+    // endbuild
+    // build:js js/main.min.js
+    script(async src='js/main.js')
+    // endbuild
+  body
+    div#clock
+    div#voter
+      span.down -
+      span.vote 0
+      span.up +
+    canvas#canvas(onload='Canvas()', width = '300', height = '300')
+    script.
+      var clock = new Clock();
+      clock.start();
+      var voter = new Voter();
+      var canvas = new Canvas();
+      canvas.draw();
