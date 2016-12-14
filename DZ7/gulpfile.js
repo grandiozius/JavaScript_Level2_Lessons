@@ -21,11 +21,11 @@ gulp.task('watch', ['browserSync', 'jade', 'useref'], function (){
   gulp.watch('app/css/**/*.css', browserSync.reload); 
 });
 
-gulp.task('useref', function(){
+gulp.task('useref', ['jade'], function(){
   return gulp.src('app/*.html')
+    .pipe(useref())
     .pipe(gulpIf('*.css', cleanCSS()))
     .pipe(gulpIf('*.js', uglify()))
-    .pipe(useref())
     .pipe(gulp.dest('dist'))
 });
 

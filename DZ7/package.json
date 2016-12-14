@@ -2,7 +2,7 @@
   "name": "dz7",
   "version": "1.0.0",
   "description": "dz7",
-  "main": "gulpfile.js",
+  "main": "index7.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
