@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, JavaScript. Level 2</title>
+    <link rel="stylesheet" href="css/styles.min.css">
+    <script src="js/main.min.js"></script>
+  </head>
+  <body>
+    <div id="clock"></div>
+    <div id="voter"><span class="down">-</span><span class="vote">0</span><span class="up">+</span></div>
+    <canvas id="canvas" onload="Canvas()" width="300" height="300"></canvas>
+    <script>
+      var clock = new Clock(document.querySelector('#clock'));
+      clock.start();
+      var voter = new Voter(document.querySelector('#voter'));
+      var canvas = new Canvas(document.querySelector('#canvas'));
+      canvas.draw();
+    </script>
+  </body>
+</html>

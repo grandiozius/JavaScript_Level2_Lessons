@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#clock {
+  margin: 20px;
+  font-family: Courier New;
+  font-size: 60px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#voter {
+  margin: 20px;
+  font-family: Courier New;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.down {
+  color: blue;
+  cursor: pointer;
+}
+
+.up {
+  color: green;
+  cursor: pointer;
+}
+
+canvas {
+  border: 1px solid black;
+}
